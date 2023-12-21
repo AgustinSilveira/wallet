@@ -1,0 +1,64 @@
+<body>
+  
+
+
+<header>
+  <div class="img-back">
+    <a routerLink="/wallet">
+      <img src="../../../assets/icon/back.svg" alt=""> 
+    </a>
+  <div class="tittle-send">
+    <h2>Destinatario</h2>
+  </div>
+</div>
+</header>
+
+<div class="search">
+  <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="onSearchTermChange()"></ion-searchbar>
+
+</div>
+
+
+
+<ion-content>
+  <ion-segment [(ngModel)]="segmentValue" (ionChange)="segmentChanged()">
+    <ion-segment-button value="todo">
+      <ion-label>Todo</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="ingresos">
+      <ion-label>Ingresos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="egresos">
+      <ion-label>Egresos</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  
+  <!-- <ion-content *ngIf="historialTransacciones.length > 0">
+    <ion-item *ngFor="let transaccion of historialTransacciones">
+    <div *ngFor="let result of searchResults">
+      {{ result.displayName }}  
+    </div>
+  </ion-item>
+  </ion-content> -->
+
+  <!-- Aquí muestra el historial de transacciones -->
+  <ion-list *ngIf="historialTransacciones.length > 0">
+    <ion-item *ngFor="let transaccion of historialTransacciones">
+      <!-- Filtrar el resultado de la búsqueda para encontrar el usuario correspondiente -->
+      <ng-container *ngIf="searchResults.length > 0">
+        <ion-label>
+          Le enviaste {{ transaccion.amount }} a
+          {{ getUserDisplayName(transaccion.receiverUid) }}
+        </ion-label>
+      </ng-container>
+    </ion-item>
+  </ion-list>
+
+  <!-- Mensaje si no hay historial de transacciones -->
+  <ion-text *ngIf="historialTransacciones.length === 0">
+    <p>No hay transacciones disponibles.</p>
+  </ion-text>
+</ion-content>
+
+
+</body>

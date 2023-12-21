@@ -1,0 +1,116 @@
+<body>
+  
+
+<header>
+ 
+
+  <div class="container-header">
+    <div class="items-header">
+      <div>
+        <img src="../../../assets/icon/menu-icon.svg" alt="">
+      </div>
+      <button class="exit" (click)="signOut()">Cerrar sesion</button>
+      <div class="ion-ava">
+        <ion-avatar>
+          <div class="img-avatar">
+            <img alt="foto de perfil" src="{{ photo }}" />
+          </div>
+        
+      </ion-avatar>
+      </div>
+    </div>
+  </div> 
+</header>
+
+<main>
+  <div class="container-main">
+
+  
+  <div class="main-tag">
+    <p class="p1">Hola,</p>
+    <p class="p2">{{ userName }}</p>
+    
+  </div>
+  <div class="container-balance">
+    <div>
+      <p class="p1-main">Tu balance</p> 
+    </div>
+    <div class="main-money">
+      <p class="p2-main">${{ formattedBalance }}</p>
+      <div (click)="updateBalance(500)">
+        <img src="../../../assets/icon/add-button.svg" alt="">
+      </div>
+   
+    </div>
+  </div>
+</div>
+</main>
+
+  <section>
+    <div class="section-container">
+      <div class="items-section">
+       <div>
+        <a routerLink="/send">
+          <img class="imgSend" src="../../../assets/icon/send.svg" alt="">
+        </a>
+       </div>
+       <div>
+        <a routerLink="/request-amount">
+          <img src="../../../assets/icon/request.svg" alt="">
+        </a>
+       </div>
+       <div>
+        <a routerLink="">
+          <img src="../../../assets/icon/pay.svg" alt="">
+        </a>
+       </div>
+       <div>
+        <a routerLink="/transactions">
+          <img src="../../../assets/icon/wihtdraw.svg" alt="">
+        </a>
+       </div> 
+      </div> 
+    </div>
+  </section>
+
+
+  <!-- COMPLETAR MAS TARDE -->
+  <!-- <aside>
+    <div class="container-aside">
+      <div class="aside-perfiles">
+        <p>¿Quieres volverle a enviar?</p>
+        <div class="perfil" *ngFor="let user of transferredUsers">
+          <ion-avatar>
+            <img [alt]="user.displayName" [src]="user.avatar" />
+            <div *ngIf="historialTransacciones.length > 0">
+              <div *ngFor="let transaccion of historialTransacciones">
+                {{ getUserDisplayName(transaccion.receiverUid) }}
+              </div>
+             
+            </div>
+           
+          </ion-avatar>
+        </div>
+      </div>
+    </div>
+  </aside> -->
+
+  <section>
+    <div class="container-qr">
+      <div (click)="startScan()">    
+          <img src="../../../assets/icon/add-button(1).svg" alt="">
+      </div>
+      
+    </div>
+  </section>
+
+  <footer>
+    <div class="container-footer">
+      <div class="container-img">
+        <h3>¡Aun no hay transacciones!</h3>
+        <img src="../../../assets//flight-booking-cuate.svg" alt="">
+      </div>
+    </div>
+  </footer>
+
+</body>
